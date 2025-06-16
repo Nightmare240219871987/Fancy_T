@@ -1,3 +1,6 @@
 name: fancy_t
 environment:
   sdk: '^3.8.0'
+
+dev_dependencies:
+  test: any

@@ -1,0 +1,10 @@
+{
+    "configurations": [
+        {
+            "name": "Dart (test/sound_test.dart)",
+            "type": "dart",
+            "request": "launch",
+            "program": "test/sound_test.dart"
+        }
+    ]
+}
