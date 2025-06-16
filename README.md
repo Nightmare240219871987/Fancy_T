@@ -66,12 +66,19 @@ Cursor.restore(); // ESC 8
 
 ### Bildschirmoperationen
 
+```bash
 Screen.clear(); // ESC[2J
 Screen.clearLine(); // ESC[K
 Screen.setCursorVisibility(false);
-Töne / BEL (Bell)
+```
+
+### Töne / BEL (Bell)
+
 Simples Feature für akustische Signale
-Console.beep(); // \x07 oder \a
+
+```bash
+Terminal.beep(); // \x07 oder \a
+```
 
 ## Alternative Puffer / Fullscreen Modi
 
