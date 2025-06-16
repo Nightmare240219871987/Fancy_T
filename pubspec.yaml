@@ -1,0 +1,3 @@
+name: fancy_t
+environment:
+  sdk: '^3.8.0'
