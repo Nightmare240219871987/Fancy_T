@@ -2,7 +2,8 @@
 
 ## Zielsetzung der Bibliothek
 
-* Die Bibliothek sollte Entwicklern das Leben erleichtern, indem sie:
+**Die Bibliothek sollte Entwicklern das Leben erleichtern, indem sie:**
+
 * Farben (Foreground, Background)
 * Text-Stile (Bold, Underline, Italic usw.)
 * Cursor-Bewegung & Steuerung
