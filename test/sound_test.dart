@@ -1,4 +1,4 @@
-import '../lib/terminal/terminal.dart';
+import 'package:fancy_t/fancy_t.dart';
 
 void main() async {
   print("Spielt einen Fehler-Ton:");
