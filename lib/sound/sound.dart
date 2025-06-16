@@ -21,11 +21,22 @@ class Sound {
   }
 
   // Einen Ton mit Frequenz und Dauer abspielen
-  static Future<void> _playTone(int frequency, int durationMs) async {
+  static Future<void> _playTone(
+    int frequency,
+    int durationMs, {
+    String voice = 'Samantha',
+    String message = 'Beep',
+  }) async {
     if (Platform.isLinux)
       await Process.run('beep', ['-f', '$frequency', '-l', '$durationMs']);
     else if (Platform.isMacOS)
-      await Process.run('say', ['-v', 'Zavrox', 'Beep']);
+      /*
+    Alex en_US Most natural voice male
+    Daniel en_GB British English male
+    Samantha en_US System default voice female
+    Zarvox Censored Robot voice
+    */
+      await Process.run('say', ['-v', voice, message]);
     else if (Platform.isWindows)
       await Process.run(
         'PowerShell',
@@ -35,15 +46,26 @@ class Sound {
   }
 
   // Standard-Töne
-  static Future<void> playErrorTone() => _playTone(1000, 200); // Hoch, kurz
-  static Future<void> playWarningTone() => _playTone(600, 300); // Mittel
-  static Future<void> playSuccessTone() => _playTone(400, 400); // Tief, länger
+  static Future<void> playErrorTone() =>
+      _playTone(1000, 200, voice: 'Daniel', message: 'Error!'); // Hoch, kurz
+  static Future<void> playWarningTone() =>
+      _playTone(600, 300, voice: 'Alex', message: 'Warning!'); // Mittel
+  static Future<void> playSuccessTone() => _playTone(
+    400,
+    400,
+    voice: 'Samantha',
+    message: 'Success!',
+  ); // Tief, länger
 
   // Info-Ton 2-Ton-Folge
   static Future<void> playInfoTone() async {
-    await _playTone(600, 150); // Mittlerer Tone
-    await Future.delayed(Duration(milliseconds: 100));
-    await _playTone(400, 200); // Tiefer Ton
+    if (Platform.isMacOS)
+      await _playTone(600, 150, voice: 'Zarvox', message: 'Information');
+    else {
+      await _playTone(600, 150); // Mittlerer Tone
+      await Future.delayed(Duration(milliseconds: 100));
+      await _playTone(400, 200); // Tiefer Ton
+    }
   }
 
   // Beliebige Tone-Sequenz abspielen
