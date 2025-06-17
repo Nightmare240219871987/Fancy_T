@@ -28,6 +28,7 @@ abstract class StdBgColor {
   static const String def = _escape + "39" + _end;
 }
 
+// Generelle
 abstract class General {
   static const String esc = "\x1b["; //beginnt die Escape Sequence
   static const String delim = ";"; // trennt Befehle der Sequenzen
@@ -44,8 +45,7 @@ abstract class DisplayModes {
   static const String italic = _escape + "3" + _end;
   static const String underlined = _escape + "4" + _end;
   static const String blinking = _escape + "5" + _end;
-  static const String reverse =
-      _escape + "7" + _end; // kehrt die Farbgebung der Konsole um
+  static const String reverse = _escape + "7" + _end; // kehrt die Farben um
   static const String hidden = _escape + "8" + _end; // Unsichtbar
   static const String strikethrough = _escape + "9" + _end;
 }
