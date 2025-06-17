@@ -1,7 +1,7 @@
 // Standard Farbe für den Vordergrund
 abstract class StdFgColor {
   static const String _escape = General.esc;
-  static const String _end = General.end + General.newLine;
+  static const String _end = General.end;
   static const String black = _escape + "30" + _end;
   static const String red = _escape + "31" + _end;
   static const String green = _escape + "32" + _end;
@@ -16,7 +16,7 @@ abstract class StdFgColor {
 // Standart Farben für den Hintergrund
 abstract class StdBgColor {
   static const String _escape = General.esc;
-  static const String _end = General.end + General.newLine;
+  static const String _end = General.end;
   static const String black = _escape + "40" + _end;
   static const String red = _escape + "41" + _end;
   static const String green = _escape + "42" + _end;
@@ -38,7 +38,7 @@ abstract class General {
 
 abstract class DisplayModes {
   static const String _escape = General.esc;
-  static const String _end = General.end + General.newLine;
+  static const String _end = General.end;
   static const String reset = _escape + "0" + _end;
   static const String bold = _escape + "1" + _end;
   static const String dim = _escape + "2" + _end;

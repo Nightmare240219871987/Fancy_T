@@ -1,8 +1,10 @@
 //Import aller Sub-Module
 import '../sound/sound.dart';
+import '../screen/writer.dart';
 
 //hier wird die Hauptklasse des Moduls zusammengestellt
 class Terminal {
+  static final writer = Writer();
   // colored outputs
   //red e.g. error message
   static void red(String text) {

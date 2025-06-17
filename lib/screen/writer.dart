@@ -1,5 +1,5 @@
 import 'dart:io';
-import '../lib/core/ansi_codes.dart';
+import '../core/ansi_codes.dart';
 
 class Writer {
   // Display Modes
@@ -27,6 +27,14 @@ class Writer {
 
   void setBackgroundColor(String color) {
     this._bgColor = color;
+  }
+
+  void setForegroundTrueColor(int r, int g, int b) {
+    this._fgColor = General.esc + "38;2;$r;$g;$b" + General.end;
+  }
+
+  void setBackgroundTrueColor(int r, int g, int b) {
+    this._bgColor = General.esc + "48;2;$r;$g;$b" + General.end;
   }
 
   void write(String text) {
