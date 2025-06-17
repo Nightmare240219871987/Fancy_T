@@ -1,10 +1,11 @@
 //Import aller Sub-Module
 import '../sound/sound.dart';
 import '../screen/writer.dart';
+import '../widgets/progress_bar.dart';
+import 'dart:io';
 
 //hier wird die Hauptklasse des Moduls zusammengestellt
 class Terminal {
-  static final writer = Writer();
   // colored outputs
   //red e.g. error message
   static void red(String text) {
@@ -19,6 +20,11 @@ class Terminal {
   //green e.g. success message
   static void green(String text) {
     print('\x1b[32m$text\x1b[0m');
+  }
+
+  // Clear Screen function
+  static void clearScreen() {
+    stdout.write("\x1b[Hm\x1b[2J");
   }
 
   // Bell-Tone

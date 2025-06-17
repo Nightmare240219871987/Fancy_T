@@ -15,7 +15,25 @@ class Writer {
   String _bgColor = "";
   String _fgColor = "";
 
-  Writer() {}
+  Writer({
+    bool isBold = false,
+    bool isItalic = false,
+    bool isDim = false,
+    bool isUnderline = false,
+    bool isBlinking = false,
+    bool isReverse = false,
+    bool isHidden = false,
+    bool isStrikeThrough = false,
+  }) {
+    this.isBold = isBold;
+    this.isItalic = isItalic;
+    this.isDim = isDim;
+    this.isUnderline = isUnderline;
+    this.isBlinking = isBlinking;
+    this.isReverse = isReverse;
+    this.isHidden = isHidden;
+    this.isStrikeThrough = isStrikeThrough;
+  }
 
   void reset() {
     stdout.write(DisplayModes.reset);
