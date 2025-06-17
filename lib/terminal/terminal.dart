@@ -37,4 +37,10 @@ class Terminal {
   }) {
     return Sound.playToneSequence(sequence, gap: gap);
   }
+
+  // maxOS Voice message
+  static Future<void> payVoiceAlert(
+    String message, {
+    String voice = 'Zarvox',
+  }) => Sound.playVoiceAlert(message, voice: voice);
 }

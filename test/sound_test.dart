@@ -9,4 +9,7 @@ void main() async {
     {'frequency': 800, 'duration': 150},
     {'frequency': 500, 'duration': 200},
   ]);
+
+  print("Spielt Voice-Alert:");
+  await Terminal.payVoiceAlert('Alarm! You should not play Ping Pong!');
 }

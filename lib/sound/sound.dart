@@ -80,4 +80,12 @@ class Sound {
       if (gap > 0) await Future.delayed(Duration(microseconds: gap));
     }
   }
+
+  // this will run only on macOS
+  static Future<void> playVoiceAlert(
+    String message, {
+    String voice = 'Zarvox',
+  }) async {
+    await Process.run('say', ['-v', voice, message]);
+  }
 }
