@@ -12,6 +12,7 @@ void main() {
   para.setForegroundColor(StdFgColor.blue);
   blinker.setForegroundColor(StdFgColor.red);
   pb.setForegroundColor(StdFgColor.green);
+  pb.setTitle("Fortschritt : ");
   header.write("Das ist eine Headline");
   para.write("Das ist ein Paragraph !!! Also ein normaler Test.");
   blinker.write("das ist blink text!!!");
