@@ -1,5 +1,4 @@
 import "package:fancy_t/fancy_t.dart";
-import "../lib/core/ansi_codes.dart";
 
 void main() async {
   Terminal.clearScreen();
@@ -10,30 +9,20 @@ void main() async {
   header.setForegroundColor(StdFgColor.red);
   para.setForegroundColor(StdFgColor.blue);
   blinker.setForegroundColor(StdFgColor.red);
-  pb.setForegroundColor(StdFgColor.green);
-  pb.setTitle("Fortschritt : ");
   header.write("Das ist eine Headline");
   para.write("Das ist ein Paragraph !!! Also ein normaler Test.");
   blinker.write("das ist blink text!!!");
+  pb.setTitle("Fortschritt : ");
+  pb.setColorRange({40: StdFgColor.yellow, 80: StdFgColor.green});
+  pb.titleColor = StdFgColor.blue;
+  pb.labelColor = StdFgColor.yellow;
+  pb.fullBarColor = StdFgColor.red;
+  pb.emptyColor = StdFgColor.white;
   pb.showProgBar(0);
-  //Iterable<int> iterator = generateProgress();
 
-  /*for (var i in iterator) {
-    Terminal.clearScreen();
-    header.write("Das ist eine Headline");
-    para.write("Das ist ein Paragraph !!! Also ein normaler Test.");
-    blinker.write("das ist blink text!!!");
-    pb.showProgBar(i);
-  }*/
   for (int i = 0; i <= 100; i++) {
     pb.showProgBar(i);
     await Future.delayed(Duration(milliseconds: 100));
     if (i == 100) print('');
   }
-  /*
-Iterable<int> generateProgress() sync* {
-  for (int i = 1; i <= 100; i++) {
-    sleep(new Duration(seconds: 1));
-    yield i;
-  }*/
 }

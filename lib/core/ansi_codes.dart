@@ -49,3 +49,17 @@ abstract class DisplayModes {
   static const String hidden = _escape + "8" + _end; // Unsichtbar
   static const String strikethrough = _escape + "9" + _end;
 }
+
+abstract class EraseFunction {
+  static const String _escape = General.esc;
+  static const String _end = General.end;
+  static const String deleteLineStC =
+      _escape + "0K"; // Delete Line from Start to Cursor
+}
+
+abstract class CursorFunction {
+  static const String _escape = General.esc;
+  static const String _end = General.end;
+  static const String home = _escape + "H";
+  static const String saveLast = _escape + "";
+}

@@ -1,7 +1,5 @@
 //Import aller Sub-Module
 import '../sound/sound.dart';
-import '../screen/writer.dart';
-import '../widgets/progress_bar.dart';
 import 'dart:io';
 
 //hier wird die Hauptklasse des Moduls zusammengestellt
