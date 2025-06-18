@@ -55,7 +55,7 @@ class Writer {
     this._bgColor = General.esc + "48;2;$r;$g;$b" + General.end;
   }
 
-  void write(String text) {
+  void write(String text, {bool newLine = true}) {
     if (isBold) {
       stdout.write(DisplayModes.bold);
     }
@@ -84,7 +84,10 @@ class Writer {
     stdout.write(_fgColor);
     stdout.write(_bgColor);
 
-    stdout.write(text + "\n");
+    if (newLine)
+      stdout.write(text + "\n");
+    else
+      stdout.write(text);
     reset();
   }
 }

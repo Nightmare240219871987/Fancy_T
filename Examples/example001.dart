@@ -1,8 +1,7 @@
 import "package:fancy_t/fancy_t.dart";
 import "../lib/core/ansi_codes.dart";
-import "dart:io";
 
-void main() {
+void main() async {
   Terminal.clearScreen();
   Writer para = new Writer(isItalic: true);
   Writer blinker = new Writer(isBlinking: true, isBold: true);
@@ -17,19 +16,24 @@ void main() {
   para.write("Das ist ein Paragraph !!! Also ein normaler Test.");
   blinker.write("das ist blink text!!!");
   pb.showProgBar(0);
-  Iterable<int> iterator = generateProgress();
-  for (var i in iterator) {
+  //Iterable<int> iterator = generateProgress();
+
+  /*for (var i in iterator) {
     Terminal.clearScreen();
     header.write("Das ist eine Headline");
     para.write("Das ist ein Paragraph !!! Also ein normaler Test.");
     blinker.write("das ist blink text!!!");
     pb.showProgBar(i);
+  }*/
+  for (int i = 0; i <= 100; i++) {
+    pb.showProgBar(i);
+    await Future.delayed(Duration(milliseconds: 100));
+    if (i == 100) print('');
   }
-}
-
+  /*
 Iterable<int> generateProgress() sync* {
   for (int i = 1; i <= 100; i++) {
     sleep(new Duration(seconds: 1));
     yield i;
-  }
+  }*/
 }

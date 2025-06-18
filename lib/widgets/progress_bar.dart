@@ -21,7 +21,7 @@ class ProgressBar extends Writer {
 
   void showProgBar(int percentage) {
     // 🔁 Gehe am Zeilenanfang zurück, leere die Zeile
-    stdout.write('\x1b[2K\r');
+    write('\x1b[2K\r', newLine: false);
 
     // 📊 Berechne Füllstand
     int fullBars = (_width * percentage / 100).round().clamp(0, _width);
@@ -32,7 +32,7 @@ class ProgressBar extends Writer {
     String empty = _empty * emptyBars;
 
     // 🖍️ Schreibe in dieselbe Zeile (ohne neue Zeile)
-    stdout.write('${_title} $full$empty $percentage%');
+    write('${_title} $full$empty $percentage%', newLine: false);
   }
 
   void setTitle(String title) {
