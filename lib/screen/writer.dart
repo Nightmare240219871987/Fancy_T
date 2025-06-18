@@ -1,5 +1,5 @@
 import 'dart:io';
-import '../core/ansi_codes.dart';
+import 'package:fancy_t/fancy_t.dart';
 
 class Writer {
   // Display Modes
@@ -85,9 +85,9 @@ class Writer {
     stdout.write(_bgColor);
 
     if (newLine)
-      stdout.write(text + "\n");
+      stdout.write("\r" + text + "\n");
     else
-      stdout.write(text);
+      stdout.write("\r" + text);
     reset();
   }
 }

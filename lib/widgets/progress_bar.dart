@@ -43,7 +43,7 @@ class ProgressBar extends Writer {
 
     // 🖍️ Schreibe in dieselbe Zeile (ohne neue Zeile)
     write(
-      '${General.esc + titleColor + _title} ${General.esc + fullBarColor + full}${General.esc + emptyColor + empty} ${General.esc + this.labelColor + percentage.toString()}%',
+      '${General.esc + titleColor + _title}${General.esc + fullBarColor + full}${General.esc + emptyColor + empty} ${General.esc + this.labelColor + percentage.toString()}%',
       newLine: false,
     );
   }
