@@ -15,14 +15,24 @@ void main() async {
   blinker.write("das ist blink text!!!");
   pb.setTitle("Fortschritt : ");
   menu.isBold = true;
-  menu.titleColor = StdFgColor.white;
-  menu.frameColor = StdFgColor.magenta;
-  menu.fontColor = StdFgColor.white;
-  menu.printHeader("Testing1  ", Alignment.CENTER);
-  menu.printRow("1. Vorschau ", false, Alignment.CENTER);
-  menu.printRow("2. Testing  ", false, Alignment.CENTER);
-  menu.printRow("3. Testing 2", false, Alignment.CENTER);
-  menu.printRow("4. Beenden  ", true, Alignment.CENTER);
+  menu.frameColor = StdFgColor.green;
+  menu.header("Testing1  ", color: StdFgColor.yellow, align: Alignment.CENTER);
+  menu.header(
+    "Testing 2",
+    color: StdFgColor.blue,
+    align: Alignment.CENTER,
+    start: false,
+    end: true,
+  );
+  menu.row("1. Vorschau ", color: StdFgColor.blue, align: Alignment.CENTER);
+  menu.row("2. Testing  ", color: StdFgColor.green, align: Alignment.CENTER);
+  menu.row("3. Testing 2", color: StdFgColor.magenta, align: Alignment.CENTER);
+  menu.row(
+    "4. Beenden  ",
+    color: StdFgColor.red,
+    align: Alignment.CENTER,
+    end: true,
+  );
   pb.setColorRange({40: StdFgColor.yellow, 80: StdFgColor.green});
   pb.titleColor = StdFgColor.white;
   pb.labelColor = StdFgColor.white;

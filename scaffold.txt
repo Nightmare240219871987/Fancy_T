@@ -1,0 +1,10 @@
+#ToDo
+Nemo : 
+    -> Cursor.dart
+    -> Erase.dart
+Marcus : 
+    -> Refactoring Menu.dart
+        -> Zugreifbarkeit (functionshandling)
+    -> Refactoring ProgressBar.dart
+    -> Refactoring Ascii-codes.dart
+    -> Implementing Menu.dart Frameset

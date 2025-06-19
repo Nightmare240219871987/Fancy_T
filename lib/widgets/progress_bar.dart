@@ -1,5 +1,5 @@
 import 'package:fancy_t/core/ansi_codes.dart';
-import 'package:fancy_t/screen/writer.dart';
+import 'package:fancy_t/terminal/writer.dart';
 
 class ProgressBar extends Writer {
   Map<int, String> _colorRange = {};

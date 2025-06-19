@@ -15,7 +15,6 @@ class Menu extends Writer {
 
   // Laufzeitvariablen
   int _maxWidth = 0;
-  String titleColor = "";
   String frameColor = "";
   String fontColor = "";
 
@@ -24,17 +23,27 @@ class Menu extends Writer {
     this._maxWidth = width;
   }
 
-  void printHeader(String title, Alignment align) {
+  void header(
+    String title, {
+    String color = StdFgColor.white,
+    Alignment align = Alignment.LEFT,
+    bool start = true,
+    bool end = false,
+  }) {
     int maxLength = _maxWidth - 2;
+    if (title.length % 2 == 1) {
+      title = title + " ";
+    }
     int spaces = ((maxLength - title.length) / 2).round().clamp(0, maxLength);
     String textToOut = "";
+
     switch (align) {
       case Alignment.CENTER:
         textToOut =
             frameColor +
             _vertical +
             " " * spaces +
-            titleColor +
+            color +
             title +
             " " * spaces +
             frameColor +
@@ -43,7 +52,7 @@ class Menu extends Writer {
         textToOut =
             frameColor +
             _vertical +
-            titleColor +
+            color +
             title +
             " " * spaces * 2 +
             frameColor +
@@ -53,33 +62,43 @@ class Menu extends Writer {
             frameColor +
             _vertical +
             " " * spaces * 2 +
-            titleColor +
+            color +
             title +
             frameColor +
             _vertical;
     }
-    write(
-      frameColor +
-          _cornerUpLeft +
-          frameColor +
-          _horizontal * maxLength +
-          frameColor +
-          _cornerUpRight,
-      newLine: true,
-    );
+    if (start) {
+      write(
+        frameColor +
+            _cornerUpLeft +
+            frameColor +
+            _horizontal * maxLength +
+            frameColor +
+            _cornerUpRight,
+        newLine: true,
+      );
+    }
+
     write(textToOut, newLine: true);
-    write(
-      frameColor +
-          _crossLeft +
-          frameColor +
-          _horizontal * maxLength +
-          frameColor +
-          _crossRight,
-      newLine: true,
-    );
+    if (end) {
+      write(
+        frameColor +
+            _crossLeft +
+            frameColor +
+            _horizontal * maxLength +
+            frameColor +
+            _crossRight,
+        newLine: true,
+      );
+    }
   }
 
-  void printRow(String content, bool end, Alignment align) {
+  void row(
+    String content, {
+    String color = StdFgColor.white,
+    bool end = false,
+    Alignment align = Alignment.LEFT,
+  }) {
     int maxLength = _maxWidth - 2;
     if (content.length % 2 == 1) {
       content = content + " ";
@@ -93,7 +112,7 @@ class Menu extends Writer {
             frameColor +
             _vertical +
             " " * spaces +
-            fontColor +
+            color +
             content +
             " " * spaces +
             frameColor +
@@ -102,7 +121,7 @@ class Menu extends Writer {
         textToOut =
             frameColor +
             _vertical +
-            fontColor +
+            color +
             content +
             " " * spaces * 2 +
             frameColor +
@@ -112,7 +131,7 @@ class Menu extends Writer {
             frameColor +
             _vertical +
             " " * spaces * 2 +
-            fontColor +
+            color +
             content +
             frameColor +
             _vertical;
