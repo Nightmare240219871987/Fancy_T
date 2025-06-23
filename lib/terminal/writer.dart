@@ -55,6 +55,10 @@ class Writer {
     this._bgColor = General.esc + "48;2;$r;$g;$b" + General.end;
   }
 
+  void writeCmdLine(String text) {
+    stdout.write(text);
+  }
+
   void write(String text, {bool newLine = true}) {
     if (isBold) {
       stdout.write(DisplayModes.bold);
